@@ -1,0 +1,35 @@
+{
+  "name": "SpotifyAnalyticsMVP",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "webpack --config webpack.config.js --watch",
+    "server": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NickRashad/Spotify_Analytics_MVP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NickRashad/Spotify_Analytics_MVP/issues"
+  },
+  "homepage": "https://github.com/NickRashad/Spotify_Analytics_MVP#readme"
+}
