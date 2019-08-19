@@ -8,9 +8,7 @@ app.use(express.static('client/dist'))
 
 // app.get('/', (req, res) => );
 app.get('/topResults', (req, res) => {
-  res.send(
-    topResults(testFile)
-  );
+  res.send(topResults(testFile));
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

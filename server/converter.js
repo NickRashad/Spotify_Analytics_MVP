@@ -33,7 +33,6 @@ const topResults = (streamingHist) => {
   }
   topArtists.sort((a,b) => b[1].count - a[1].count);
   bestTracks.sort((a,b) =>  b[2] - a[2]);
-  console.log( bestTracks);
   return { bestTracks, topArtists }
 };
 
