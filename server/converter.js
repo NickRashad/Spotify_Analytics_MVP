@@ -31,8 +31,8 @@ const topResults = (streamingHist) => {
       }
     }
   }
-  topArtists.sort((a,b) => b[1].count - a[1].count);
-  bestTracks.sort((a,b) =>  b[2] - a[2]);
+  topArtists = topArtists.sort((a,b) => b[1].count - a[1].count).filter((val, ind) => ind < 50);
+  bestTracks = bestTracks.sort((a,b) =>  b[2] - a[2]).filter((val, ind) => ind < 50);
   return { bestTracks, topArtists }
 };
 
