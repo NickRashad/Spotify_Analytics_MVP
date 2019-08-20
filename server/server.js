@@ -9,8 +9,8 @@ const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 const fs = require('fs').promises;
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({limit: '3000kb'}))
 app.use(express.static('client/dist'))
 
 // app.get('/', (req, res) => );
@@ -25,4 +25,9 @@ app.post('/', upload.single('StreamingHistory'), (req, res) => {
   };
   getResults();
 });
+
+app.post('/test', (req, res) => {
+  console.log(req.body)
+  res.send("Success*")
+})
 app.listen(port, () => console.log(`Listening on port ${port}`));

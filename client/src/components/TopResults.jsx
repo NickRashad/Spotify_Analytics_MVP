@@ -8,7 +8,6 @@ const topResults = (props) => {
   useEffect(()=> {
     axios.get('/topResults')
       .then(({data}) => {
-        console.log(data);
         setTracks(data.bestTracks);
         setArtists(data.topArtists);
       });
