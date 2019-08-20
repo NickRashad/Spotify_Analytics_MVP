@@ -8,7 +8,7 @@ const App = (props) => {
     <div>
       <h2>It's Go Time</h2>
       <UploadJSON />
-      <TopResults />
+      {/* <TopResults /> */}
     </div>
   )
 };

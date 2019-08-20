@@ -1,36 +1,40 @@
 import React, { Component, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import TopResults from './TopResults.jsx';
 import axios from 'axios';
 
 const uploadJSON = (props) => {
   const [finalFile, setFinalFile] = useState({});
+  const [ready, isReady] = useState(false);
+  const [dataObj, setDataObj] = useState({});
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('/test', {
+    axios.post('/stream', {
       data: {finalFile}
     })
-      .then(res => console.log(res))
+      .then(({data}) => setDataObj(data))
+      .then(() => isReady(true))
   };
 
   const onChange = (e) => {
-
     var file = e.target.files[0];
     var reader = new FileReader();
     reader.onload = function(e) {
-      console.log(e.target.result)
       setFinalFile(e.target.result);
     };
-    var possible = reader.readAsText(file);
-    // console.log(possible)
+    reader.readAsText(file);
   };
 
   return (
-    <form onSubmit={onSubmit} >
-      <input type="file" onChange={onChange} name="StreamingHistory" accept=".json" ></input>
-      <input type="submit" value="Submit"></input>
-    </form>
+    <div>
+      <form onSubmit={onSubmit} >
+        <input type="file" onChange={onChange} name="StreamingHistory" accept=".json" ></input>
+        <input type="submit" value="Submit"></input>
+      </form>
+      { ready ? <TopResults data={dataObj} /> : null }
+    </div>
   )
 };
 

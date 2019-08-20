@@ -26,8 +26,9 @@ app.post('/', upload.single('StreamingHistory'), (req, res) => {
   getResults();
 });
 
-app.post('/test', (req, res) => {
-  console.log(req.body)
-  res.send("Success*")
+app.post('/stream', (req, res) => {
+  // console.log(Object.keys(req.body.data.finalFile))
+  let content = topResults(JSON.parse(req.body.data.finalFile));
+  res.send(content)
 })
 app.listen(port, () => console.log(`Listening on port ${port}`));

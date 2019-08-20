@@ -6,12 +6,16 @@ const topResults = (props) => {
   const [artists, setArtists] = useState([]);
   const [tracks, setTracks] = useState([]);
   useEffect(()=> {
-    axios.get('/topResults')
-      .then(({data}) => {
-        setTracks(data.bestTracks);
-        setArtists(data.topArtists);
-      });
+  setTracks(props.data.bestTracks);
+  setArtists(props.data.topArtists);
   },[]);
+  // useEffect(()=> {
+  //   axios.get('/topResults')
+  //     .then(({data}) => {
+  //       setTracks(data.bestTracks);
+  //       setArtists(data.topArtists);
+  //     });
+  // },[]);
 
   return(
     <div className="tracks">
