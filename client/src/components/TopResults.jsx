@@ -5,20 +5,17 @@ import axios from 'axios';
 const topResults = (props) => {
   const [artists, setArtists] = useState([]);
   const [tracks, setTracks] = useState([]);
+
   useEffect(()=> {
-  setTracks(props.data.bestTracks);
-  setArtists(props.data.topArtists);
+    setTracks(props.data.bestTracks);
+    setArtists(props.data.topArtists);
+    console.log('Top Artists',props.data.topArtists)
+    console.log('Top Tracks',props.data.bestTracks)
   },[]);
-  // useEffect(()=> {
-  //   axios.get('/topResults')
-  //     .then(({data}) => {
-  //       setTracks(data.bestTracks);
-  //       setArtists(data.topArtists);
-  //     });
-  // },[]);
 
   return(
     <div className="tracks">
+      <h3>Top Artists</h3>
       { artists.length > 0 &&
         artists.map((artist) => (
           <div key={artist[0]} className="artist">{artist[0]} : {artist[1].count}</div>
@@ -30,23 +27,6 @@ const topResults = (props) => {
         ))
       }
     </div>
-    // <div>
-    //   <ol>
-    //     { artists.length > 0 &&
-    //       artists.map((artist) => (
-    //         <li>{artist[0]} : {artist[1].count}</li>
-    //       ))
-    //     }
-    //   </ol>
-
-    //   <ul>
-    //     { tracks.length > 0 &&
-    //       tracks.map((track) => (
-    //         <li>{track[1]} - {track[0]}</li>
-    //       ))
-    //     }
-    //   </ul>
-    // </div>
   );
 };
 
